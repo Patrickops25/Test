@@ -12,6 +12,14 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
+      color: red;
+      font-family: sans-serif;
+    }
+    #instruction {
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-align: center;
     }
     #container {
       position: relative;
@@ -28,9 +36,9 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 60px;
+      font-size: 30px;
       color: white;
-      background: rgba(0, 0, 0, 0.5);
+      background: red;
       border: none;
       border-radius: 50%;
       padding: 20px 30px;
@@ -40,6 +48,7 @@
   </style>
 </head>
 <body>
+  <div id="instruction">Click to play</div>
   <div id="container">
     <video id="video" preload="auto">
       <source src="howto.mp4" type="video/mp4">
