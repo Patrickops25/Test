@@ -1,16 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coffee Video</title>
   <style>
-    body { margin: 0; background: #000; display: flex; align-items: center; justify-content: center; height: 100vh; }
-    video { width: 90%; max-width: 600px; }
+    body {
+      margin: 0;
+      background-color: #000;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #container {
+      position: relative;
+      width: 90%;
+      max-width: 700px;
+    }
+    video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    #playButton {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 60px;
+      color: white;
+      background: rgba(0, 0, 0, 0.5);
+      border: none;
+      border-radius: 50%;
+      padding: 20px 30px;
+      cursor: pointer;
+      z-index: 2;
+    }
   </style>
 </head>
 <body>
-  <video controls>
-    <source src="howto.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <div id="container">
+    <video id="video" preload="auto">
+      <source src="howto.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <button id="playButton">▶</button>
+  </div>
+
+  <script>
+    const video = document.getElementById("video");
+    const playButton = document.getElementById("playButton");
+
+    playButton.addEventListener("click", () => {
+      video.play();
+      playButton.style.display = "none";
+    });
+
+    video.addEventListener("ended", () => {
+      playButton.style.display = "block";
+    });
+  </script>
 </body>
 </html>
